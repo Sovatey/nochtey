@@ -1,0 +1,28 @@
+/* Timeline container */
+.location {
+  width: 100%;
+  /* margin: 20px 0; */
+}
+
+.location-title {
+  font-weight: bold;
+  font-size: "clamp(20px, 3vw, 24px)";
+  text-align: center;
+  margin-bottom: 16px;
+  color: goldenrod;
+}
+
+.open-location-btn {
+  margin-top: 20px;
+  background-color: #94b0c8;
+  border: none;
+  border-radius: 25px;
+  padding: 6px 20px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  animation: pulseZoom 2s infinite ease-in-out;
+  font-family: "Preahvihear", sans-serif;
+}

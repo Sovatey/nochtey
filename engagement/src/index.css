@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  font-family: "Preahvihear", sans-serif;
+  background: #e8f6ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.app-root {
+  width: 430px;
+  /* fixed mobile width */
+  min-height: 100vh;
+  background: white;
+  /* optional, you can make transparent if you want */
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+/* keep your existing styles */
+.hero {
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.initials-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.initials-divider {
+  width: 2px;
+  height: 40px;
+  background: #9fdcff;
+}
+
+.couple-names {
+  font-family: "Preahvihear", sans-serif;
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.title {
+  font-family: "Preahvihear", sans-serif;
+  font-size: 28px;
+  margin-top: -80px;
+}
+
+.date {
+  color: #6b7b85;
+  font-family: "Preahvihear", sans-serif;
+}
+
+.cartoon-img {
+  width: 220px;
+  max-width: 80%;
+  height: auto;
+}
+
+.panel {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-list {
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.timeline-time {
+  width: 70px;
+  color: #6b7b85;
+}
+
+.timeline-dot {
+  width: 10px;
+  height: 10px;
+  background: #9fdcff;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.timeline-content {
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.footer {
+  text-align: center;
+  color: #6b7b85;
+  padding: 20px;
+}

@@ -1,0 +1,228 @@
+/* HERO SECTION */
+/* HERO SECTION */
+.hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* full vertical centering */
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  height: calc(var(--vh, 1vh) * 100);
+  background-color: #e8f6ff;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+/* HERO INNER */
+.hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2vmin;
+  width: 90%;
+  max-width: 600px;
+  padding: 2vmin;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+  /* transform: translateY(0); */
+  transform: translateY(5vh);
+}
+
+/* TITLE */
+.title {
+  font-size: clamp(22px, 6vw, 48px);
+  color: #333;
+  margin-bottom: 2vmin;
+  line-height: 1.2;
+}
+
+/* LOGO */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.2vmin 0; /* smaller vertical margin */
+  padding: 0; /* remove any padding if there was any */
+}
+
+.couple-logo {
+  width: 55%; /* slightly smaller */
+  max-width: 180px;
+  height: auto;
+  transition: transform 0.3s ease;
+  margin: 0;
+}
+.couple-logo:hover {
+  transform: scale(1.05);
+}
+
+/* COUPLE NAMES */
+.couple-names {
+  font-size: clamp(18px, 5vw, 40px);
+  color: #4d4e50;
+  font-weight: 600;
+  margin: 1vmin 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* GUEST BOX */
+.guest-box {
+  width: 90%; /* mobile-friendly width */
+  max-width: 300px; /* limits size on desktop */
+  height: 50px; /* fixed height so it doesn’t grow too big */
+  padding: 0 10px; /* small horizontal padding */
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #d4af37;
+  border-radius: 12px;
+  font-size: 16px; /* fixed font size */
+  font-weight: bold;
+  color: #b8860b;
+  margin-top: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.invitation-text {
+  font-size: clamp(14px, 4vw, 20px);
+  color: #b8860b;
+  font-weight: 500;
+  margin-bottom: -10px;
+  margin-top: 10%;
+  text-align: center;
+}
+
+/* CARTOON IMAGE */
+.cartoon-container {
+  margin-top: 3vmin;
+  display: flex;
+  justify-content: center;
+}
+.cartoon-img {
+  width: 70%;
+  max-width: 300px;
+  height: auto;
+}
+
+/* FALLING HEARTS */
+.falling-hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+.heart {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 📱 Small screens */
+@media (max-width: 480px) {
+  .couple-logo {
+    width: 80%;
+    max-width: 150px;
+  }
+
+  .guest-box {
+    width: 90%;
+  }
+
+  .cartoon-img {
+    width: 80%;
+  }
+}
+
+/* 💻 Tablets */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .hero-inner {
+    max-width: 700px;
+  }
+}
+
+/* 🖥️ Large screens */
+@media (min-width: 1025px) {
+  .hero {
+    background-size: contain; /* prevent zoom-in on large monitors */
+  }
+}
+
+.open-invitation-btn {
+  margin-top: 10px;
+  background-color: #94b0c8;
+  border: none;
+  border-radius: 25px;
+  padding: 6px 24px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out;
+  animation: pulseZoom 2s infinite ease-in-out;
+  font-family: "Preahvihear", sans-serif;
+}
+
+/* Slight zoom on hover */
+.open-invitation-btn:hover {
+  transform: scale(1.1);
+}
+
+/* ✨ Smooth zoom in/out pulse animation */
+@keyframes pulseZoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* 📱 Small screens */
+@media (max-width: 480px) {
+  .couple-logo {
+    width: 80%;
+    max-width: 150px;
+  }
+
+  .guest-box {
+    width: 90%;
+  }
+
+  .cartoon-img {
+    width: 80%;
+  }
+
+  /* Move hero-inner a little down */
+  .hero-inner {
+    transform: translateY(15vh); /* move elements down more on mobile */
+  }
+}

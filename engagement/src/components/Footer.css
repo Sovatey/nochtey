@@ -1,0 +1,25 @@
+.footer {
+  width: 100%;
+  /* background-color: rgba(255, 255, 255, 0.95); */
+  text-align: center;
+  padding: 12px 20px;
+  font-family: "Preahvihear", sans-serif;
+  color: #202020;
+  position: relative; /* or fixed if you want it always at bottom */
+  bottom: 0;
+  /* box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); */
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.footer p {
+  margin: 0;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+.footer small {
+  display: block;
+  margin-top:4px;
+  font-size: clamp(12px, 1.5vw, 14px);
+  color: #666;
+}

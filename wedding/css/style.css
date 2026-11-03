@@ -1,0 +1,721 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #2a0e13;
+  background-image:
+    radial-gradient(circle at 50% 35%, rgba(70, 20, 30, 0.92) 0%, rgba(20, 5, 10, 1.0) 100%);
+  background-size: cover;
+  background-position: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  touch-action: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered Mobile Phone Frame Container */
+#canvas-container {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  max-height: 100vh;
+  position: relative;
+  background-color: #f7efe6;
+  background-image: url('../assets/background.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  touch-action: none;
+  pointer-events: none;
+}
+
+#canvas-container canvas:not(#corner-flower) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Royal Wedding Header: សិរីមង្គលអាពាហ៍ពិពាហ៍ */
+#wedding-header {
+  position: absolute;
+  top: 13.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 360px;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
+  opacity: 0;
+  animation: headerReveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+  will-change: transform, opacity;
+}
+
+.wedding-header-title {
+  font-family: 'Moul', 'Taprom', 'Kantumruy Pro', cursive;
+  font-size: clamp(17px, 4.4vw, 21px);
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.9;
+  letter-spacing: 0.8px;
+  margin: 0;
+  padding: 8px 0 0 0;
+  white-space: nowrap;
+  overflow: visible;
+  background: linear-gradient(180deg, #a86c1e 0%, #8c5210 25%, #703c05 60%, #4a2402 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #703c05;
+  filter: drop-shadow(1px 2px 2.5px rgba(50, 20, 5, 0.45));
+}
+
+.header-vine-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3px;
+  width: 100%;
+}
+
+.header-vine-bottom svg {
+  display: block;
+}
+
+@keyframes headerReveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -8px) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Bottom-Left Floral Corner Bouquet Container */
+#corner-flower {
+  position: absolute;
+  bottom: -14px;
+  left: -18px;
+  margin: 0;
+  padding: 0;
+  width: 58%;
+  max-width: 260px;
+  aspect-ratio: 1024 / 935;
+  pointer-events: none;
+  z-index: 1;
+  display: block;
+  transform-origin: bottom left;
+  opacity: 0;
+  animation: flowerLoadIn 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+  will-change: transform, opacity;
+}
+
+/* Layered Branch Components */
+.flower-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: block;
+}
+
+.flower-base {
+  z-index: 4;
+  transform-origin: 20% 75%;
+  animation: breatheFlowerBase 9.0s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  will-change: transform;
+}
+
+/* Dynamic Breezy Swinging on the Top Branch - Slow, silky-smooth motion */
+.flower-top {
+  z-index: 1;
+  transform-origin: 22% 52%;
+  animation: swingTopBranch 7.2s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  will-change: transform;
+}
+
+/* Dynamic Breezy Swinging on the Middle Long Branch - Slow, silky-smooth motion */
+.flower-mid {
+  z-index: 2;
+  transform-origin: 41% 58%;
+  animation: swingMidBranch 7.8s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  animation-delay: -2.4s;
+  will-change: transform;
+}
+
+/* Dynamic Breezy Swinging on the Right Branch - Slow, silky-smooth motion */
+.flower-right {
+  z-index: 3;
+  transform-origin: 44% 72%;
+  animation: swingRightBranch 7.5s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  animation-delay: -4.0s;
+  will-change: transform;
+}
+
+@keyframes swingTopBranch {
+  0% {
+    transform: rotate(-16.0deg) skewX(-2.0deg) scale(0.98);
+  }
+
+  100% {
+    transform: rotate(14.0deg) skewX(2.0deg) scale(1.0);
+  }
+}
+
+@keyframes swingMidBranch {
+  0% {
+    transform: rotate(-19.0deg) skewX(-2.5deg) scale(0.975);
+  }
+
+  100% {
+    transform: rotate(17.0deg) skewX(2.5deg) scale(1.0);
+  }
+}
+
+@keyframes swingRightBranch {
+  0% {
+    transform: rotate(-2.5deg) translateY(0px) scaleX(0.99);
+  }
+
+  100% {
+    transform: rotate(4.5deg) translateY(3px) scaleX(1.0);
+  }
+}
+
+@keyframes breatheFlowerBase {
+  0% {
+    transform: rotate(-1.0deg) scale(0.994);
+  }
+
+  100% {
+    transform: rotate(1.0deg) scale(1.0);
+  }
+}
+
+/* Top-Right Floral Corner Bouquet Container */
+#top-corner-flower {
+  position: absolute;
+  top: -12px;
+  right: 0px;
+  margin: 0;
+  padding: 0;
+  width: 58%;
+  max-width: 260px;
+  aspect-ratio: 1024 / 935;
+  pointer-events: none;
+  z-index: 1;
+  display: block;
+  transform-origin: top right;
+  opacity: 0;
+  animation: flowerLoadInTop 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+  will-change: transform, opacity;
+}
+
+/* Layered Branch Components for Top-Right Flower */
+.top-flower-base {
+  z-index: 4;
+  transform-origin: 78% 24%;
+  animation: breatheTopFlowerBase 9.0s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  animation-delay: -2.0s;
+  will-change: transform;
+}
+
+/* Dynamic Breezy Swinging on the Top-Left Branch (trails horizontally along top border) */
+.top-flower-left {
+  z-index: 1;
+  transform-origin: 61% 11%;
+  animation: swingTopLeftBranch 7.5s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  will-change: transform;
+}
+
+/* Dynamic Breezy Swinging on the Middle Loop / Crystal Strands */
+.top-flower-mid {
+  z-index: 2;
+  transform-origin: 56% 21%;
+  animation: swingTopMidBranch 7.8s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  animation-delay: -2.4s;
+  will-change: transform;
+}
+
+/* Dynamic Breezy Swinging on the Down Branch (trails vertically along right border) */
+.top-flower-down {
+  z-index: 3;
+  transform-origin: 82% 51%;
+  animation: swingTopDownBranch 7.2s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+  animation-delay: -3.8s;
+  will-change: transform;
+}
+
+@keyframes swingTopLeftBranch {
+  0% {
+    transform: rotate(-12.0deg) translateY(-3px) scale(0.985);
+  }
+
+  100% {
+    transform: rotate(11.0deg) translateY(3px) scale(1.0);
+  }
+}
+
+@keyframes swingTopMidBranch {
+  0% {
+    transform: rotate(-16.0deg) skewX(-2.5deg) scale(0.975);
+  }
+
+  100% {
+    transform: rotate(15.0deg) skewX(2.5deg) scale(1.0);
+  }
+}
+
+@keyframes swingTopDownBranch {
+  0% {
+    transform: rotate(-14.0deg) skewY(-2.0deg) scale(0.98);
+  }
+
+  100% {
+    transform: rotate(13.0deg) skewY(2.0deg) scale(1.0);
+  }
+}
+
+@keyframes breatheTopFlowerBase {
+  0% {
+    transform: rotate(-1.0deg) scale(0.994);
+  }
+
+  100% {
+    transform: rotate(1.0deg) scale(1.0);
+  }
+}
+
+@keyframes flowerLoadInTop {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translate(4%, -4%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+@keyframes flowerLoadIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translate(-4%, 4%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translate(0, 0);
+  }
+}
+
+/* Royal Wedding Invitation Section Under The Heart */
+#wedding-invite-section {
+  position: absolute;
+  top: 61.8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: clamp(260px, 88%, 400px);
+  max-width: 90%;
+  z-index: 5;
+  pointer-events: auto;
+  opacity: 0;
+  animation: nameBoxReveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+  will-change: transform, opacity;
+}
+
+.wedding-invite-title {
+  font-family: 'Moul', 'Taprom', 'Kantumruy Pro', cursive;
+  font-size: clamp(14px, 3.8vw, 17px);
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.6px;
+  margin: 0 0 6px 0;
+  padding: 4px 0 0 0;
+  white-space: nowrap;
+  overflow: visible;
+  background: linear-gradient(180deg, #a86c1e 0%, #8c5210 25%, #703c05 60%, #4a2402 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #703c05;
+  filter: drop-shadow(1px 2px 2.5px rgba(50, 20, 5, 0.45));
+  user-select: none;
+}
+
+#wedding-name-box {
+  width: 100%;
+  aspect-ratio: 596 / 66;
+  position: relative;
+  cursor: default;
+  user-select: none;
+}
+
+.name-box-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 5px 12px rgba(45, 12, 18, 0.20));
+}
+
+.name-box-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.name-box-content {
+  position: absolute;
+  top: 3%;
+  bottom: 5%;
+  left: 21%;
+  right: 21%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0 2px;
+}
+
+.name-box-input {
+  width: 100%;
+  max-height: 100%;
+  text-align: center;
+  font-family: 'Moul', 'Taprom', 'Kantumruy Pro', cursive;
+  font-size: 13.5px;
+  font-weight: normal;
+  color: #461f04;
+  line-height: 1.35;
+  letter-spacing: 0.15px;
+  outline: none;
+  border: none;
+  background: transparent;
+  word-break: break-word;
+  white-space: nowrap;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85), 0 0 1px rgba(180, 110, 30, 0.2);
+  cursor: default;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Wedding Event Details: Date & Venue Rows */
+.wedding-event-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.event-detail-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+
+.event-icon {
+  width: 14px;
+  height: 14px;
+  color: #8c5210;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 1px rgba(70, 30, 5, 0.35));
+}
+
+.event-text {
+  font-family: 'Kantumruy Pro', 'Taprom', cursive, sans-serif;
+  font-size: clamp(11.5px, 3.0vw, 13.5px);
+  font-weight: 600;
+  color: #4a2107;
+  letter-spacing: 0.2px;
+  line-height: 1.35;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85), 0 0 1px rgba(180, 110, 30, 0.2);
+  user-select: none;
+}
+
+/* Royal Wedding Open Invitation Button */
+.open-invitation-btn {
+  margin-top: 45px;
+  padding: 7px 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #fffdf8 0%, #f6ecd8 100%);
+  border: 1.5px solid #c89848;
+  border-radius: 999px;
+  box-shadow:
+    0 4px 14px rgba(70, 25, 10, 0.16),
+    0 1px 3px rgba(60, 20, 10, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(200, 150, 70, 0.25);
+  cursor: pointer;
+  pointer-events: auto;
+  animation: buttonPulse 2.6s ease-in-out infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  text-decoration: none;
+  outline: none;
+}
+
+.open-invitation-btn:hover {
+  transform: translate3d(0, -2px, 0) scale(1.06);
+  border-color: #dfad52;
+  box-shadow:
+    0 8px 22px rgba(180, 100, 25, 0.30),
+    0 2px 5px rgba(60, 20, 10, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 1.0);
+  animation-play-state: paused;
+}
+
+.open-invitation-btn:active {
+  transform: translate3d(0, 0, 0) scale(0.96);
+  box-shadow:
+    0 2px 8px rgba(60, 20, 10, 0.20),
+    inset 0 1px 2px rgba(60, 20, 10, 0.15);
+}
+
+@keyframes buttonPulse {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.97);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0) scale(1.045);
+  }
+}
+
+.open-invitation-btn .btn-text {
+  display: inline-block;
+  font-family: 'Moul', 'Taprom', 'Kantumruy Pro', cursive;
+  font-size: 13.5px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 1.8;
+  letter-spacing: 0.6px;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #a86c1e 0%, #8c5210 25%, #703c05 60%, #4a2402 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #703c05;
+  filter: drop-shadow(1px 2px 2px rgba(50, 20, 5, 0.35));
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes nameBoxReveal {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 14px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Responsive scaling for various viewport heights */
+@media (max-height: 760px) {
+  #wedding-header {
+    top: 11.5%;
+  }
+
+  #wedding-invite-section {
+    top: 61.5%;
+    width: clamp(240px, 84%, 360px);
+  }
+
+  .wedding-invite-title {
+    font-size: clamp(13px, 3.5vw, 15px);
+    margin-bottom: 4px;
+  }
+
+  .open-invitation-btn {
+    margin-top: 36px;
+    padding: 6px 16px;
+  }
+}
+
+@media (max-height: 640px) {
+  #wedding-header {
+    top: 10%;
+  }
+
+  #wedding-invite-section {
+    top: 60%;
+    width: clamp(210px, 78%, 310px);
+  }
+
+  .wedding-invite-title {
+    font-size: clamp(12px, 3.2vw, 14px);
+    margin-bottom: 3px;
+  }
+
+  .open-invitation-btn {
+    margin-top: 28px;
+    padding: 5px 14px;
+  }
+}
+
+/* Narrow mobile */
+@media (max-width: 360px) {
+  #wedding-invite-section {
+    width: clamp(200px, 90%, 290px);
+  }
+
+  .name-box-input {
+    font-size: 12.2px;
+  }
+}
+
+/* On Desktop / Laptop: Display as a luxury royal invitation phone card */
+@media (min-width: 481px) {
+  #canvas-container {
+    max-height: min(920px, 96vh);
+    border-radius: 36px;
+    box-shadow:
+      0 30px 80px rgba(10, 2, 4, 0.50),
+      0 10px 25px rgba(10, 2, 4, 0.35),
+      0 0 0 1px rgba(220, 180, 120, 0.45);
+  }
+
+  /* Refined proportions on laptop/desktop: balanced, not oversized */
+  .name-box-content {
+    left: 23%;
+    right: 23%;
+  }
+
+  .name-box-input {
+    font-size: 18px;
+  }
+}
+
+/* On Native Mobile Devices: Edge-to-edge full-bleed display */
+@media (max-width: 480px) {
+
+  html,
+  body {
+    background: none;
+    background-color: #f7efe6;
+  }
+
+  #canvas-container {
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Clean and balanced size on mobile phones matching the laptop look */
+  .name-box-content {
+    left: 21%;
+    right: 21%;
+  }
+
+  .name-box-input {
+    font-size: 12.8px;
+    letter-spacing: 0.15px;
+  }
+}
+
+/* ==========================================================================
+   E-Invitation Video Experience Overlay
+   ========================================================================== */
+.invitation-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 80;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.5s;
+  overflow: hidden;
+}
+
+.invitation-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.invitation-media-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.invitation-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Wedding Invitation - Noch & Tey</title>
+
+  <!-- Google Fonts for Luxury Royal Wedding Calligraphy & Traditional Khmer Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Moul&family=Taprom&family=Kantumruy+Pro:wght@400;600;700&family=Alex+Brush&family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Three.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+  <div id="canvas-container">
+    <!-- Royal Wedding Khmer Header -->
+    <!-- Royal Wedding Khmer Header -->
+    <div id="wedding-header">
+      <h1 class="wedding-header-title">សិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+      <div class="header-vine-bottom">
+        <svg width="180" height="16" viewBox="0 0 180 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="goldHdrGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#b07424" />
+              <stop offset="30%" stop-color="#945d16" />
+              <stop offset="65%" stop-color="#7a480a" />
+              <stop offset="100%" stop-color="#4e2602" />
+            </linearGradient>
+            <filter id="vineShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0.8" dy="1.4" stdDeviation="1" flood-color="rgba(50, 20, 5, 0.40)" />
+            </filter>
+          </defs>
+          <g filter="url(#vineShadow)">
+            <!-- Left slender stem with graceful curl -->
+            <path d="M82 8 C68 7, 50 5, 32 9 C24 11, 18 8, 16 5 C15 2, 17 0, 20 1 C23 2, 22 6, 20 7"
+                  stroke="url(#goldHdrGrad)" stroke-width="1.1" stroke-linecap="round" fill="none" />
+            <!-- Left delicate leaves -->
+            <path d="M60 7 Q52 1 44 4 Q49 9 60 7 Z" fill="url(#goldHdrGrad)" />
+            <path d="M40 8 Q33 3 27 6 Q31 10 40 8 Z" fill="url(#goldHdrGrad)" />
+
+            <!-- Right slender stem with graceful curl -->
+            <path d="M98 8 C112 7, 130 5, 148 9 C156 11, 162 8, 164 5 C165 2, 163 0, 160 1 C157 2, 158 6, 160 7"
+                  stroke="url(#goldHdrGrad)" stroke-width="1.1" stroke-linecap="round" fill="none" />
+            <!-- Right delicate leaves -->
+            <path d="M120 7 Q128 1 136 4 Q131 9 120 7 Z" fill="url(#goldHdrGrad)" />
+            <path d="M140 8 Q147 3 153 6 Q149 10 140 8 Z" fill="url(#goldHdrGrad)" />
+
+            <!-- Center delicate diamond knot -->
+            <polygon points="90,5 93,8 90,11 87,8" fill="url(#goldHdrGrad)" />
+            <circle cx="84" cy="8" r="1.3" fill="url(#goldHdrGrad)" />
+            <circle cx="96" cy="8" r="1.3" fill="url(#goldHdrGrad)" />
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div id="top-corner-flower">
+      <img class="flower-layer top-flower-left" src="assets/top_flower_left.png" alt="Top Left Branch">
+      <img class="flower-layer top-flower-down" src="assets/top_flower_down.png" alt="Top Down Branch">
+      <img class="flower-layer top-flower-mid" src="assets/top_flower_mid.png" alt="Top Mid Branch">
+      <img class="flower-layer top-flower-base" src="assets/top_flower_base.png" alt="Top Floral Base">
+    </div>
+    <div id="corner-flower">
+      <img class="flower-layer flower-top" src="assets/flower_top.png" alt="Top Branch">
+      <img class="flower-layer flower-right" src="assets/flower_right.png" alt="Right Branch">
+      <img class="flower-layer flower-mid" src="assets/flower_mid.png" alt="Mid Branch">
+      <img class="flower-layer flower-base" src="assets/flower_base.png" alt="Floral Base">
+    </div>
+
+    <!-- Royal Wedding Invitation Section Under The Heart -->
+    <div id="wedding-invite-section">
+      <div class="wedding-invite-title">សូមគោរពអញ្ជើញ</div>
+      <div id="wedding-name-box">
+        <div class="name-box-frame">
+          <img class="name-box-bg" src="assets/name_box.png" alt="Royal Wedding Nameplate" draggable="false">
+          <div class="name-box-content">
+            <div id="name-box-input"
+                 class="name-box-input"
+                 aria-label="Wedding Guest">ភ្ញៀវកិត្តិយស</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wedding Event Details: Date & Venue -->
+      <div class="wedding-event-details">
+        <div class="event-detail-row">
+          <svg class="event-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2.5" y="4" width="15" height="13.5" rx="3" stroke="currentColor" stroke-width="1.6" />
+            <path d="M6 2.2V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M14 2.2V5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M2.5 8H17.5" stroke="currentColor" stroke-width="1.3" />
+            <circle cx="6.5" cy="11.5" r="1.1" fill="currentColor" />
+            <circle cx="10" cy="11.5" r="1.1" fill="currentColor" />
+            <circle cx="13.5" cy="11.5" r="1.1" fill="currentColor" />
+            <circle cx="6.5" cy="14.5" r="1.1" fill="currentColor" />
+            <circle cx="10" cy="14.5" r="1.1" fill="currentColor" />
+          </svg>
+          <span class="event-text">ថ្ងៃសៅរ៍ ទី២៧ ខែកុម្ភៈ ឆ្នាំ២០២៧</span>
+        </div>
+        <div class="event-detail-row">
+          <svg class="event-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 2.5C6.7 2.5 4 5.2 4 8.5C4 13.2 10 17.8 10 17.8C10 17.8 16 13.2 16 8.5C16 5.2 13.3 2.5 10 2.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+            <circle cx="10" cy="8.5" r="2.4" stroke="currentColor" stroke-width="1.5" fill="none" />
+          </svg>
+          <span class="event-text">ភូមិ ផ្លាហ្សា</span>
+        </div>
+      </div>
+
+      <!-- Royal Wedding Open Invitation Button -->
+      <button id="open-invitation-btn" class="open-invitation-btn" type="button" aria-label="Open Wedding Invitation">
+        <span class="btn-text">បើកលិខិតអញ្ជើញ</span>
+      </button>
+    </div>
+
+    <!-- E-Invitation Fullscreen Video Experience -->
+    <div id="invitation-overlay" class="invitation-overlay">
+      <div id="invitation-media-container" class="invitation-media-container">
+        <video id="invitation-video"
+               class="invitation-video"
+               src="assets/invitation_video.mp4"
+               playsinline
+               webkit-playsinline
+               muted
+               disablepictureinpicture
+               disableremoteplayback
+               preload="auto"></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modular Components -->
+  <script src="js/config.js"></script>
+  <script src="js/heart.js"></script>
+  <script src="js/calligraphy.js"></script>
+  <script src="js/rosePetals.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
