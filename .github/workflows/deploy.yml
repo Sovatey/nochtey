@@ -44,7 +44,7 @@ jobs:
           mkdir -p _site/engagement
           mkdir -p _site/wedding
 
-          cp index.html script.js style.css _site/
+          cp -R index.html script.js style.css images favicon.svg _site/
 
           cp -R wedding/. _site/wedding/
 

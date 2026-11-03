@@ -1,88 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding | Our Special Day</title>
+    <title>Noch & Tey | Our Story</title>
+    <meta name="description"
+        content="Welcome to the celebration portal of Noch & Tey. A beautiful day, a lifetime of love.">
 
-    <link rel="stylesheet" href="style.css">
-
+    <!-- Google Fonts: Haute Couture Serif, Khmer & Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Kantumruy+Pro:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Favicon: Pink Heart Tab Icon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ff5376' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <main class="website-container">
+    <!-- Falling Champagne Sparkles Effect -->
+    <canvas id="sparklesCanvas" class="sparkles-canvas" aria-hidden="true"></canvas>
 
-        <!-- Navigation -->
-        <header class="navbar">
+    <!-- Navigation Bar (All 6 Links Restored) -->
+    <header class="navbar">
 
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="Wedding Logo">
-                <span>OUR SPECIAL DAY</span>
-            </a>
+        <a href="#home" class="logo">
+            <span class="logo-title">NOCH <em>&amp;</em> TEY</span>
+            <span class="logo-subtitle">Our Story</span>
+        </a>
 
-            <nav class="nav-menu">
-                <a href="/">HOME</a>
-                <a href="#story">OUR STORY</a>
-                <a href="/engagement/">ENGAGEMENT</a>
-                <a href="/wedding/">WEDDING</a>
-                <a href="#gallery">GALLERY</a>
-                <a href="#contact">CONTACT</a>
-            </nav>
+        <nav class="nav-menu">
+            <a href="#home">HOME</a>
+            <a href="#story">OUR STORY</a>
+            <a href="./engagement/">ENGAGEMENT</a>
+            <a href="./wedding/">WEDDING</a>
+            <a href="#gallery">GALLERY</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
 
-            <button class="menu-toggle" id="menuToggle">
-                ☰
-            </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+            ☰
+        </button>
 
-        </header>
+    </header>
 
-        <!-- Hero -->
-        <section class="hero" id="home">
+    <!-- Screen-Fit Main Stage (Editorial Spread) -->
+    <main class="main-stage" id="home">
 
-            <div class="hero-content">
+        <div class="stage-grid">
 
-                <div class="hero-text">
+            <!-- Left Column: Haute Couture Typography & Narrative -->
+            <div class="stage-content">
 
-                    <h1>
-                        A Beautiful Day<br>
-                        A Beautiful Beginning
-                    </h1>
-
-                    <p>
-                        A day filled with love,<br>
-                        joy and unforgettable memories.
-                    </p>
-
+                <div class="editorial-tag">
+                    <span class="badge-sparkle">✦</span>
+                    <span>A CELEBRATION OF ETERNAL LOVE</span>
+                    <span class="badge-sparkle">✦</span>
                 </div>
 
-                <div class="hero-image-wrapper">
+                <h1 class="couple-names">
+                    Noch <span>&amp;</span> Tey
+                </h1>
 
-                    <div class="image-frame"></div>
+                <!-- <div class="khmer-title">
+                    សិរីមង្គលអាពាហ៍ពិពាហ៍ &amp; ពិធីភ្ជាប់ពាក្យ
+                </div> -->
 
-                    <img
-                        src="assets/wedding-table.jpg"
-                        alt="Wedding Reception"
-                        class="hero-image"
-                    >
+                <p class="editorial-narrative">
+                    “Two souls chosen by fate, walking hand-in-hand toward a lifetime of sunshine, quiet laughter, and
+                    boundless happiness.”
+                </p>
 
-                </div>
+                <!-- Editorial Action Gateways -->
+                <!-- <div class="editorial-actions">
+                    <a href="./wedding/" class="btn-editorial-primary">
+                        <span>Wedding Invitation</span>
+                        <span class="btn-arrow">⟶</span>
+                    </a>
+                    <a href="./engagement/" class="btn-editorial-secondary">
+                        <span>Engagement Ceremony</span>
+                        <span class="btn-arrow">⟶</span>
+                    </a>
+                </div> -->
 
-                <div class="signature">
-                    <span>♡</span>
-                    <p>OUR LOVE STORY</p>
-                    <span>♡</span>
+                <!-- Editorial Milestone Badges -->
+                <!-- <div class="editorial-meta">
+                    <span class="meta-dot">●</span>
+                    <span>February 27, 2027 • Phum Plaza</span>
+                    <span class="meta-dot">●</span>
+                    <span>December 29, 2025 • One More Restaurant</span>
+                </div> -->
+
+            </div>
+
+            <!-- Right Column: Modern Fine-Art Gallery Showcase (Clean, Rectangular, No Overlap) -->
+            <div class="stage-visual">
+
+                <div class="gallery-duo">
+
+                    <!-- Photo 1: Hero Portrait (Head on shoulder - taller) -->
+                    <div class="gallery-card card-portrait" title="Click to view full photo">
+                        <div class="gallery-photo-wrapper">
+                            <img src="images/photo2.jpg" alt="Noch & Tey - Tender moment with head on shoulder"
+                                class="gallery-photo">
+                        </div>
+                    </div>
+
+                    <!-- Photo 2: Companion Landscape (Smiling on sofa) -->
+                    <div class="gallery-card card-landscape" title="Click to view full photo">
+                        <div class="gallery-photo-wrapper">
+                            <img src="images/photo1.jpg" alt="Noch & Tey - Smiling together on sofa"
+                                class="gallery-photo">
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
-        </section>
+        </div>
 
     </main>
 
-    <script src="js/script.js"></script>
+    <!-- Photo Lightbox Modal -->
+    <div class="modal" id="imageModal" aria-hidden="true" role="dialog">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" aria-label="Close enlarged photo">&times;</button>
+            <img id="modalImage" src="" alt="Enlarged photo view">
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>

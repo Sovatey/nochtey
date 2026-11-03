@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Noch & Tey | Screen-Fit Fine-Art Gallery Showcase
+   Aesthetic: Soft Light-Yellow, Luxury Champagne Gold, Fine-Art Museum Prints
+   ========================================================================== */
 
 * {
     margin: 0;
@@ -6,195 +10,558 @@
 }
 
 :root {
-    --burgundy: #71302f;
-    --cream: #f5efeb;
-    --white: #ffffff;
-    --text: #743b3a;
+    /* Soft Light-Yellow & Warm Ivory Palette (Matches Navbar Exactly) */
+    --bg-page: #fffef9;
+    --bg-navbar: rgba(255, 254, 249, 0.98);
+    --yellow-light: #fffdf5;
+    --yellow-soft: #fef8e6;
+    --yellow-warm: #faeebe;
+    --yellow-accent: #f6e297;
+    
+    /* Luxury Champagne & Gold Accents */
+    --gold-primary: #caa045;
+    --gold-dark: #8c6b22;
+    --gold-light: #e8ce82;
+    --gold-border: rgba(214, 182, 94, 0.42);
+    
+    /* Typography Colors (High-contrast, warm, ultra-crisp) */
+    --text-primary: #2b251e;
+    --text-secondary: #5c5244;
+    --text-muted: #8e8272;
+    
+    /* Geometry & Shadows */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    
+    /* Fonts */
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-khmer: 'Kantumruy Pro', sans-serif;
+    --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    min-height: 100vh;
-    background: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-    padding: 14px;
+    background-color: var(--bg-page);
+    background-image: 
+        radial-gradient(circle at 85% 15%, rgba(254, 246, 215, 0.65) 0%, transparent 45%),
+        radial-gradient(circle at 10% 85%, rgba(255, 250, 230, 0.7) 0%, transparent 45%),
+        linear-gradient(180deg, #fffef9 0%, #fefcf3 50%, #fffef9 100%);
+    font-family: var(--font-sans);
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Fits screen perfectly on desktop */
 }
 
-.website-container {
-    min-height: calc(100vh - 28px);
-    border: 5px solid var(--burgundy);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(
-        to bottom,
-        #ffffff 0%,
-        #ffffff 68%,
-        var(--cream) 68%,
-        var(--cream) 100%
-    );
+/* ==========================================================================
+   Falling Champagne Sparkles Canvas
+   ========================================================================== */
+.sparkles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50; /* Gently floats across page, behind navbar (100) and modal (1000) */
 }
 
-/* Navbar */
-
+/* ==========================================================================
+   Navigation Bar (All 6 Links Restored, Clean & Uniform)
+   ========================================================================== */
 .navbar {
     height: 75px;
-    padding: 0 8%;
+    padding: 0 5%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    z-index: 5;
+    z-index: 100;
+    background: var(--bg-navbar);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(228, 204, 138, 0.28);
+    flex-shrink: 0;
 }
 
 .logo {
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-decoration: none;
-    color: var(--burgundy);
+    line-height: 1.15;
+    transition: opacity 0.3s ease;
 }
 
-.logo img {
-    width: 40px;
-    height: 35px;
-    object-fit: contain;
+.logo:hover {
+    opacity: 0.8;
 }
 
-.logo span {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 1px;
+.logo-title {
+    font-family: var(--font-serif);
+    font-size: 21px;
+    font-weight: 500;
+    letter-spacing: 2.8px;
+    color: var(--text-primary);
+    text-transform: uppercase;
+}
+
+.logo-title em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--gold-primary);
+    font-weight: 400;
+    margin: 0 2px;
+}
+
+.logo-subtitle {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.8px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-top: 2px;
 }
 
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 26px;
 }
 
 .nav-menu a {
     text-decoration: none;
-    font-size: 10px;
-    color: var(--burgundy);
+    font-size: 11.5px;
+    color: var(--text-primary);
     font-weight: 500;
-    transition: 0.3s;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 6px 2px;
+    transition: var(--transition);
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--gold-primary);
+    transition: var(--transition);
+    transform: translateX(-50%);
+    border-radius: 2px;
 }
 
 .nav-menu a:hover {
-    color: #bd7774;
+    color: var(--gold-dark);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 .menu-toggle {
     display: none;
     border: none;
     background: transparent;
-    color: var(--burgundy);
-    font-size: 28px;
+    color: var(--gold-dark);
+    font-size: 26px;
     cursor: pointer;
+    padding: 6px;
 }
 
-/* Hero */
-
-.hero {
-    min-height: 430px;
-    padding: 25px 10%;
-    position: relative;
-}
-
-.hero-content {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1.15fr;
+/* ==========================================================================
+   Screen-Fit Stage (2-Column Editorial Showcase)
+   ========================================================================== */
+.main-stage {
+    flex: 1;
+    display: flex;
     align-items: center;
-    min-height: 350px;
-}
-
-.hero-text {
-    position: relative;
-    z-index: 2;
-    padding-bottom: 40px;
-}
-
-.hero-text h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(38px, 5vw, 54px);
-    font-weight: 400;
-    line-height: 1.05;
-    color: var(--text);
-    margin-bottom: 30px;
-}
-
-.hero-text p {
-    font-size: 17px;
-    line-height: 1.6;
-    font-weight: 400;
-    color: var(--text);
-}
-
-/* Hero Image */
-
-.hero-image-wrapper {
-    position: relative;
+    justify-content: center;
+    padding: 20px 5%;
+    max-width: 1380px;
     width: 100%;
-    height: 310px;
-    z-index: 1;
+    margin: 0 auto;
+    position: relative;
 }
 
-.hero-image {
+.stage-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    align-items: center;
+    gap: 55px;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    position: relative;
-    z-index: 2;
+    max-height: calc(100vh - 105px);
 }
 
-.image-frame {
-    position: absolute;
-    top: -20px;
-    right: -20px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #b98b85;
-    z-index: 1;
-}
-
-/* Signature */
-
-.signature {
-    position: absolute;
-    left: 35%;
-    bottom: -65px;
-    width: 135px;
-    height: 135px;
-    border: 1px solid #a66c69;
-    border-radius: 50%;
-    color: var(--burgundy);
+/* ==========================================================================
+   Left Column: Haute Couture Typography & Narrative
+   ========================================================================== */
+.stage-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-right: 15px;
+    z-index: 2;
+}
+
+.editorial-tag {
+    display: inline-flex;
     align-items: center;
-    transform: rotate(-15deg);
-    background: rgba(255, 255, 255, 0.35);
-    z-index: 3;
+    gap: 8px;
+    font-size: 10.5px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--gold-dark);
+    background: rgba(254, 243, 200, 0.75);
+    border: 1px solid rgba(220, 187, 107, 0.4);
+    padding: 5px 16px;
+    border-radius: var(--radius-full);
+    margin-bottom: 20px;
+    align-self: flex-start;
 }
 
-.signature p {
-    font-family: 'Cormorant Garamond', serif;
+.badge-sparkle {
+    color: var(--gold-primary);
+    font-size: 11px;
+}
+
+.couple-names {
+    font-family: var(--font-serif);
+    font-size: clamp(48px, 5.8vw, 76px);
+    font-weight: 400;
+    line-height: 0.98;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    letter-spacing: -1px;
+}
+
+.couple-names span {
+    font-style: italic;
+    color: var(--gold-primary);
+    font-size: 0.8em;
+    margin: 0 4px;
+}
+
+.khmer-title {
+    font-family: var(--font-khmer);
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--gold-dark);
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+}
+
+.editorial-narrative {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.55;
+    font-style: italic;
+    color: var(--text-secondary);
+    max-width: 470px;
+    margin-bottom: 30px;
+}
+
+/* Minimalist Editorial Action Gateways */
+.editorial-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.btn-editorial-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 28px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, #fceb9e 0%, #f6d168 100%);
+    border: 1px solid rgba(206, 169, 78, 0.5);
+    color: #3b2c11;
     font-size: 12px;
-    letter-spacing: 2px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(214, 178, 92, 0.28);
+    transition: var(--transition);
 }
 
-.signature span {
+.btn-editorial-primary:hover {
+    background: linear-gradient(135deg, #fff0aa 0%, #fad87a 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(214, 178, 92, 0.38);
+}
+
+.btn-editorial-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 26px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.85);
+    border: 1.5px solid var(--gold-border);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(206, 172, 85, 0.08);
+    transition: var(--transition);
+}
+
+.btn-editorial-secondary:hover {
+    background: var(--yellow-warm);
+    border-color: var(--gold-primary);
+    transform: translateY(-2px);
+}
+
+.btn-arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn-editorial-primary:hover .btn-arrow,
+.btn-editorial-secondary:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.editorial-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+.meta-dot {
+    color: var(--gold-primary);
+    font-size: 8px;
+}
+
+/* ==========================================================================
+   Right Column: Modern Fine-Art Gallery Showcase
+   - Clean, elegant, natural rectangles (NO arches, NO fake gradients)
+   - Zero overlap: both photos fully visible side-by-side
+   - Portrait photo is taller & commanding; Landscape photo is wider & joyful
+   - Museum-grade floating presentation with crisp white mat and soft shadow
+   ========================================================================== */
+.stage-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.gallery-duo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+/* Individual Gallery Card (Clean, modern fine-art museum frame) */
+.gallery-card {
+    position: relative;
+    background: #ffffff;
+    padding: 8px; /* Clean crisp white gallery mat */
+    border-radius: 14px;
+    border: 1px solid rgba(214, 182, 94, 0.32); /* Subtle champagne hairline */
+    box-shadow: 
+        0 18px 42px -10px rgba(160, 130, 60, 0.15),
+        0 4px 14px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+/* Photo 2 (Portrait: Head on Shoulder) - Taller Hero */
+.card-portrait {
+    width: clamp(230px, 19vw, 270px);
+    height: clamp(330px, 43vh, 395px);
+}
+
+/* Photo 1 (Landscape: Smiling on Sofa) - Companion */
+.card-landscape {
+    width: clamp(230px, 19vw, 270px);
+    height: clamp(270px, 35vh, 320px);
+    align-self: center; /* Sits naturally balanced beside the portrait */
+}
+
+/* Photo Inner Wrapper */
+.gallery-photo-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    background: #fdfaf2;
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-portrait .gallery-photo {
+    object-position: center 18%; /* Keeps both faces and gentle smiles perfectly framed */
+}
+
+.card-landscape .gallery-photo {
+    object-position: center 25%; /* Centers Noch and Tey sitting on sofa */
+}
+
+/* Hover Interaction: Smooth lift and warm glow */
+.gallery-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 24px 50px -10px rgba(160, 130, 60, 0.25),
+        0 6px 18px rgba(0, 0, 0, 0.06);
+    border-color: var(--gold-primary);
+}
+
+.gallery-card:hover .gallery-photo {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Full-Screen Lightbox Modal
+   ========================================================================== */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 12, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    max-width: 820px;
+    max-height: 88vh;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
+    background: #ffffff;
+    border: 2px solid var(--gold-light);
+    padding: 8px;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    max-height: 82vh;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
     font-size: 20px;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    z-index: 10;
 }
 
-/* Responsive */
+.modal-close:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+}
 
-@media (max-width: 768px) {
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 960px) {
+    body {
+        overflow-y: auto;
+        height: auto;
+        min-height: 100vh;
+    }
 
-    .navbar {
-        padding: 0 5%;
+    .main-stage {
+        padding: 30px 5% 40px 5%;
+        height: auto;
+    }
+
+    .stage-grid {
+        grid-template-columns: 1fr;
+        max-height: none;
+        gap: 36px;
+    }
+
+    .stage-content {
+        padding-right: 0;
+        text-align: center;
+        align-items: center;
+    }
+
+    .editorial-tag {
+        align-self: center;
+    }
+
+    .editorial-actions {
+        justify-content: center;
+    }
+
+    .editorial-meta {
+        justify-content: center;
+    }
+
+    .gallery-duo {
+        max-width: 520px;
+    }
+
+    .card-portrait {
+        width: 250px;
+        height: 360px;
+    }
+
+    .card-landscape {
+        width: 235px;
+        height: 295px;
     }
 
     .menu-toggle {
@@ -204,45 +571,36 @@ body {
     .nav-menu {
         display: none;
         position: absolute;
-        top: 70px;
+        top: 75px;
         left: 0;
         width: 100%;
-        padding: 20px;
-        background: white;
+        padding: 22px;
+        background: #fdfcf7;
         flex-direction: column;
-        gap: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+        gap: 18px;
+        box-shadow: 0 10px 25px rgba(206, 172, 85, 0.15);
+        border-bottom: 1px solid var(--gold-border);
     }
 
     .nav-menu.active {
         display: flex;
     }
+}
 
-    .hero {
-        padding: 30px 7%;
+@media (max-width: 560px) {
+    .gallery-duo {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
     }
 
-    .hero-content {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    .card-portrait {
+        width: min(290px, 86vw);
+        height: 380px;
     }
 
-    .hero-text {
-        padding-bottom: 0;
-    }
-
-    .hero-text h1 {
-        font-size: 42px;
-    }
-
-    .hero-image-wrapper {
-        height: 250px;
-    }
-
-    .signature {
-        left: 5%;
-        bottom: -55px;
-        width: 110px;
-        height: 110px;
+    .card-landscape {
+        width: min(280px, 84vw);
+        height: 300px;
     }
 }
